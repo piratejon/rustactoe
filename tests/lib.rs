@@ -9,6 +9,7 @@ fn test_it() {
 #[test]
 fn tttsquare() {
   let mut square : rustactoe::TttSquare = std::default::Default::default();
+  assert_eq!(square.get_value(), 'x');
   square.set_x();
   assert_eq!(square.get_value(), 'x');
   square.set_blank();
