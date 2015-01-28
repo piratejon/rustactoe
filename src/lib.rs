@@ -28,3 +28,15 @@ impl TttSquare {
   }
 }
 
+pub struct TttBoard;
+
+impl std::default::Default for TttBoard {
+  fn default() -> TttBoard {
+    TttBoard
+  }
+}
+
+impl TttBoard {
+  pub fn count_blanks(&self) -> u8 { 9 }
+}
+
