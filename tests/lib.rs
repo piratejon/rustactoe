@@ -10,6 +10,6 @@ fn test_it() {
 fn tttsquare() {
   let square = rustactoe::TttSquare;
   square.set_x();
-  // assert_eq!(square.get_value(), 'x');
+  assert_eq!(square.get_value(), 'x');
 }
 
