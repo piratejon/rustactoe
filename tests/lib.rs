@@ -8,7 +8,7 @@ fn test_it() {
 
 #[test]
 fn tttsquare() {
-  let square = rustactoe::TttSquare;
+  let mut square = rustactoe::TttSquare { value: 'x' };
   square.set_x();
   assert_eq!(square.get_value(), 'x');
 }
