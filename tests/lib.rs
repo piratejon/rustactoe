@@ -11,5 +11,9 @@ fn tttsquare() {
   let mut square : rustactoe::TttSquare = std::default::Default::default();
   square.set_x();
   assert_eq!(square.get_value(), 'x');
+  square.set_blank();
+  assert_eq!(square.get_value(), '_');
+  square.set_o();
+  assert_eq!(square.get_value(), 'o');
 }
 
