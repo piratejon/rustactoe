@@ -18,3 +18,9 @@ fn tttsquare() {
   assert_eq!(square.get_value(), 'o');
 }
 
+#[test]
+fn tttboard() {
+  let mut board : rustactoe::TttBoard = std::default::Default::default();
+  assert_eq!(board.count_blanks(), 9);
+}
+
