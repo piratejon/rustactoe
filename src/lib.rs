@@ -26,6 +26,13 @@ impl TttSquare {
       TttSquareValue::Blank => '_',
     }
   }
+  pub fn set_value(&mut self, value : char) {
+    match value {
+      'X' | 'x' => self.set_x(),
+      'O' | 'o' => self.set_o(),
+      _ => self.set_blank(),
+    }
+  }
 }
 
 pub struct TttBoard {

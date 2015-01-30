@@ -16,6 +16,23 @@ fn tttsquare() {
   assert_eq!(square.get_value(), '_');
   square.set_o();
   assert_eq!(square.get_value(), 'o');
+
+  square.set_value('x');
+  assert_eq!(square.get_value(), 'x');
+  square.set_value('o');
+  assert_eq!(square.get_value(), 'o');
+  square.set_value('O');
+  assert_eq!(square.get_value(), 'o');
+  square.set_value('0');
+  assert_eq!(square.get_value(), '_');
+  square.set_value('_');
+  assert_eq!(square.get_value(), '_');
+  square.set_value('X');
+  assert_eq!(square.get_value(), 'x');
+  square.set_value('*');
+  assert_eq!(square.get_value(), '_');
+  square.set_value('9');
+  assert_eq!(square.get_value(), '_');
 }
 
 #[test]
