@@ -28,11 +28,25 @@ impl TttSquare {
   }
 }
 
-pub struct TttBoard;
+pub struct TttBoard {
+  squares : [TttSquare; 9],
+}
 
 impl std::default::Default for TttBoard {
   fn default() -> TttBoard {
-    TttBoard
+    TttBoard {
+      squares : [
+        { TttSquare { value : TttSquareValue::Blank } },
+        { TttSquare { value : TttSquareValue::Blank } },
+        { TttSquare { value : TttSquareValue::Blank } },
+        { TttSquare { value : TttSquareValue::Blank } },
+        { TttSquare { value : TttSquareValue::Blank } },
+        { TttSquare { value : TttSquareValue::Blank } },
+        { TttSquare { value : TttSquareValue::Blank } },
+        { TttSquare { value : TttSquareValue::Blank } },
+        { TttSquare { value : TttSquareValue::Blank } },
+      ]
+    }
   }
 }
 
