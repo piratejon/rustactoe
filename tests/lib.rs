@@ -32,5 +32,8 @@ fn tttboard() {
   assert_eq!(board.get_square(7), '_');
   assert_eq!(board.get_square(8), '_');
   assert_eq!(board.get_square(9), '_');
+
+  board.set_square(8, 'x');
+  assert_eq!(board.get_square(8), 'x');
 }
 
