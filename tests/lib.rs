@@ -63,6 +63,7 @@ fn tttboard() {
        7 | 8 | 9
        */
   board.set_square(9, 'x');
+  assert_eq!(board.winner(), '_');
   board.set_square(7, 'x');
   assert_eq!(board.winner(), 'x');
 }
