@@ -71,7 +71,7 @@ impl TttBoard {
   }
 
   pub fn set_square(&mut self, index : usize, value : char) {
-    self.squares[index-1].set_x();
+    self.squares[index-1].set_value(value);
   }
 }
 
