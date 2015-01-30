@@ -22,5 +22,7 @@ fn tttsquare() {
 fn tttboard() {
   let mut board : rustactoe::TttBoard = std::default::Default::default();
   assert_eq!(board.count_blanks(), 9);
+
+  assert_eq!(board.get_square(1).get_value(), '_');
 }
 
