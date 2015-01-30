@@ -75,7 +75,11 @@ impl TttBoard {
   }
 
   pub fn winner(&self) -> char {
-    'x'
+    if self.get_square(7) == 'x' && self.get_square(8) == 'x' && self.get_square(9) == 'x' {
+      'x'
+    } else {
+      '_'
+    }
   }
 }
 
