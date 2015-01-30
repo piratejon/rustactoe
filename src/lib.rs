@@ -53,7 +53,14 @@ impl std::default::Default for TttBoard {
 impl TttBoard {
   pub fn count_blanks(&self) -> usize { self.squares.len() }
   pub fn get_square(&self, index : usize) -> char {
-    self.squares[index].get_value()
+    /*
+       1 | 2 | 3
+       ---------
+       4 | 5 | 6
+       ---------
+       7 | 8 | 9
+       */
+    self.squares[index-1].get_value()
   }
 }
 

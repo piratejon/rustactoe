@@ -23,6 +23,14 @@ fn tttboard() {
   let mut board : rustactoe::TttBoard = std::default::Default::default();
   assert_eq!(board.count_blanks(), 9);
 
+  assert_eq!(board.get_square(1), '_');
   assert_eq!(board.get_square(2), '_');
+  assert_eq!(board.get_square(3), '_');
+  assert_eq!(board.get_square(4), '_');
+  assert_eq!(board.get_square(5), '_');
+  assert_eq!(board.get_square(6), '_');
+  assert_eq!(board.get_square(7), '_');
+  assert_eq!(board.get_square(8), '_');
+  assert_eq!(board.get_square(9), '_');
 }
 
