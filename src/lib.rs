@@ -51,7 +51,7 @@ impl std::default::Default for TttBoard {
 }
 
 impl TttBoard {
-  pub fn count_blanks(&self) -> u8 { 9 }
+  pub fn count_blanks(&self) -> usize { self.squares.len() }
   pub fn get_square(&self, index : u8) -> char {
     return '_';
   }
