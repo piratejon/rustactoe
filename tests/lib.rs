@@ -55,5 +55,15 @@ fn tttboard() {
 
   board.set_square(1, ' ');
   assert_eq!(board.get_square(1), '_');
+    /*
+       1 | 2 | 3
+       ---------
+       4 | 5 | 6
+       ---------
+       7 | 8 | 9
+       */
+  board.set_square(9, 'x');
+  board.set_square(7, 'x');
+  assert_eq!(board.winner(), 'x');
 }
 
