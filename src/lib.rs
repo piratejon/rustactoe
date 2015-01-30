@@ -71,7 +71,7 @@ impl TttBoard {
   }
 
   pub fn set_square(&mut self, index : usize, value : char) {
-    self.squares[index-1].set_value(value);
+    self.squares[index-1].set_value(value)
   }
 
   pub fn winner(&self) -> char {
@@ -79,6 +79,12 @@ impl TttBoard {
       'x'
     } else {
       '_'
+    }
+  }
+
+  pub fn reset(&mut self) {
+    for i in range(0, self.squares.len()) {
+      self.squares[i].set_value('_')
     }
   }
 }
