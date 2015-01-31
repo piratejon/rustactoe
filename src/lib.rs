@@ -115,7 +115,13 @@ impl std::default::Default for TttBoardBinRep {
 }
 
 impl TttBoardBinRep {
-  pub fn count_blanks(&self) -> usize { 9 }
+  pub fn count_blanks(&self) -> u16 {
+    let mut count = 9;
+    for i in range(0,9) {
+      count -= ((self.xs >> i) & 1);
+    }
+    count
+  }
 
   pub fn get_square(&self, i : u8) -> char {
     if self.xs & (1 << i) > 0 { 'x' }

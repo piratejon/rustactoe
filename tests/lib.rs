@@ -121,9 +121,9 @@ fn tttboard_binrep() {
   // board.set_x(8);
   board.set_square(8, 'x');
   assert_eq!(board.get_square(8), 'x');
-  /*
   assert_eq!(board.count_blanks(), 8);
 
+  /*
   board.set_square(1, ' ');
   assert_eq!(board.get_square(1), '_');
     /*
