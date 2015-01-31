@@ -102,3 +102,11 @@ impl TttBoard {
   }
 }
 
+pub struct TttBoardBinRep;
+
+impl std::default::Default for TttBoardBinRep {
+  fn default() -> TttBoardBinRep {
+    TttBoardBinRep
+  }
+}
+
