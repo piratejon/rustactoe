@@ -124,7 +124,7 @@ impl TttBoardBinRep {
   }
 
   pub fn get_square(&self, i : u8) -> char {
-    if self.xs & (1 << i) > 0 { 'x' }
+    if self.xs & (1 << (i-1)) > 0 { 'x' }
     else { '_' }
   }
 
@@ -137,11 +137,11 @@ impl TttBoardBinRep {
   }
 
   pub fn set_x(&mut self, i : u8) {
-    self.xs |= (1 << i)
+    self.xs |= (1 << (i-1))
   }
 
   pub fn set_blank(&mut self, i : u8) {
-    self.xs &= (0b111_111_111 ^ (1 << i))
+    self.xs &= (0b111_111_111 ^ (1 << (i-1)))
   }
 }
 
