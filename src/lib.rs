@@ -58,7 +58,16 @@ impl std::default::Default for TttBoard {
 }
 
 impl TttBoard {
-  pub fn count_blanks(&self) -> usize { self.squares.len() }
+  pub fn count_blanks(&self) -> usize {
+    let mut count = 0;
+    for i in self.squares.iter() {
+      if i.get_value() == '_' {
+        count += 1;
+      }
+    }
+    count
+  }
+
   pub fn get_square(&self, index : usize) -> char {
     /*
        1 | 2 | 3
