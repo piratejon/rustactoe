@@ -84,5 +84,12 @@ fn tttboard() {
   assert_eq!(board.winner(), '_');
   board.set_square(9, 'o');
   assert_eq!(board.winner(), 'o');
+
+  board.set_square(1, 'x');
+  assert_eq!(board.winner(), '_');
+  board.set_square(5, 'x');
+  assert_eq!(board.winner(), '_');
+  board.set_square(9, 'x');
+  assert_eq!(board.winner(), 'x');
 }
 

@@ -79,6 +79,8 @@ impl TttBoard {
       'x'
     } else if self.get_square(1) == 'o' && self.get_square(5) == 'o' && self.get_square(9) == 'o' {
       'o'
+    } else if self.get_square(1) == 'x' && self.get_square(5) == 'x' && self.get_square(9) == 'x' {
+      'x'
     } else {
       '_'
     }
