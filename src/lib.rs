@@ -131,6 +131,8 @@ impl TttBoardBinRep {
   pub fn set_square(&mut self, i : u8, value : char) {
     if value == 'x' || value == 'X' {
       self.set_x(i)
+    } else {
+      self.set_blank(i)
     }
   }
 
