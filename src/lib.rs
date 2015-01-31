@@ -112,5 +112,6 @@ impl std::default::Default for TttBoardBinRep {
 
 impl TttBoardBinRep {
   pub fn count_blanks(&self) -> usize { 9 }
+  pub fn get_square(&self, i : u8) -> char { '_' }
 }
 
