@@ -102,17 +102,36 @@ impl TttBoard {
   }
 }
 
-pub struct TttBoardBinRep;
+pub struct TttBoardBinRep {
+  xs : u16,
+}
 
 impl std::default::Default for TttBoardBinRep {
   fn default() -> TttBoardBinRep {
-    TttBoardBinRep
+    TttBoardBinRep {
+      xs : 0,
+    }
   }
 }
 
 impl TttBoardBinRep {
   pub fn count_blanks(&self) -> usize { 9 }
-  pub fn get_square(&self, i : u8) -> char { '_' }
-  pub fn set_square(&mut self, i : u8, value : char) { }
+
+  pub fn get_square(&self, i : u8) -> char {
+    if self.xs & (1 << i) > 0 { 'x' }
+    else { '_' }
+  }
+
+  pub fn set_square(&mut self, i : u8, value : char) {
+  }
+    /*
+    if value == 'x' || value == 'X' {
+    }
+  }
+  */
+
+  pub fn set_x(&mut self, i : u8) {
+    self.xs |= (1 << i)
+  }
 }
 
