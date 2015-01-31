@@ -106,9 +106,9 @@ fn tttboard() {
 #[test]
 fn tttboard_binrep() {
   let mut board : rustactoe::TttBoardBinRep = std::default::Default::default();
-  /*
   assert_eq!(board.count_blanks(), 9);
 
+  /*
   assert_eq!(board.get_square(1), '_');
   assert_eq!(board.get_square(2), '_');
   assert_eq!(board.get_square(3), '_');

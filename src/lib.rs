@@ -110,3 +110,7 @@ impl std::default::Default for TttBoardBinRep {
   }
 }
 
+impl TttBoardBinRep {
+  pub fn count_blanks(&self) -> usize { 9 }
+}
+
