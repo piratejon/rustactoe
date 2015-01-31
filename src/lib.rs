@@ -123,12 +123,10 @@ impl TttBoardBinRep {
   }
 
   pub fn set_square(&mut self, i : u8, value : char) {
-  }
-    /*
     if value == 'x' || value == 'X' {
+      self.set_x(i)
     }
   }
-  */
 
   pub fn set_x(&mut self, i : u8) {
     self.xs |= (1 << i)
