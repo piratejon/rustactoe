@@ -181,6 +181,11 @@ fn tttboard_binrep() {
   assert_eq!(board.count_blanks(), 6);
   // assert_eq!(board.winner(), 'o');
 
+  board.set_square(5, '_');
+  assert_eq!(board.count_blanks(), 7);
+
+  board.set_square(5, 'o');
+
   board.set_square(1, 'x');
   assert_eq!(board.count_blanks(), 6);
   // assert_eq!(board.winner(), '_');
@@ -190,5 +195,8 @@ fn tttboard_binrep() {
   board.set_square(9, 'x');
   assert_eq!(board.count_blanks(), 6);
   // assert_eq!(board.winner(), 'x');
+
+  board.reset();
+  assert_eq!(board.count_blanks(), 9);
 }
 
