@@ -169,26 +169,26 @@ fn tttboard_binrep() {
   assert_eq!(board.get_square(8), '_');
   assert_eq!(board.get_square(9), '_');
 
-  /*
-  board.set_square(1, 'o');
+  // board.set_square(1, 'o');
+  board.set_o(1);
   assert_eq!(board.count_blanks(), 8);
-  assert_eq!(board.winner(), '_');
+  // assert_eq!(board.winner(), '_');
+  assert_eq!(board.get_square(5), '_');
   board.set_square(5, 'o');
   assert_eq!(board.count_blanks(), 7);
-  assert_eq!(board.winner(), '_');
+  // assert_eq!(board.winner(), '_');
   board.set_square(9, 'o');
   assert_eq!(board.count_blanks(), 6);
-  assert_eq!(board.winner(), 'o');
+  // assert_eq!(board.winner(), 'o');
 
   board.set_square(1, 'x');
   assert_eq!(board.count_blanks(), 6);
-  assert_eq!(board.winner(), '_');
+  // assert_eq!(board.winner(), '_');
   board.set_square(5, 'x');
   assert_eq!(board.count_blanks(), 6);
-  assert_eq!(board.winner(), '_');
+  // assert_eq!(board.winner(), '_');
   board.set_square(9, 'x');
   assert_eq!(board.count_blanks(), 6);
-  assert_eq!(board.winner(), 'x');
-  */
+  // assert_eq!(board.winner(), 'x');
 }
 

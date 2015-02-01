@@ -104,12 +104,14 @@ impl TttBoard {
 
 pub struct TttBoardBinRep {
   xs : u16,
+  os : u16,
 }
 
 impl std::default::Default for TttBoardBinRep {
   fn default() -> TttBoardBinRep {
     TttBoardBinRep {
       xs : 0,
+      os : 0,
     }
   }
 }
@@ -118,7 +120,7 @@ impl TttBoardBinRep {
   pub fn count_blanks(&self) -> u16 {
     let mut count = 9;
     for i in range(0,9) {
-      count -= ((self.xs >> i) & 1);
+      count -= (((self.xs | self.os) >> i) & 1)
     }
     count
   }
@@ -131,6 +133,8 @@ impl TttBoardBinRep {
   pub fn set_square(&mut self, i : u8, value : char) {
     if value == 'x' || value == 'X' {
       self.set_x(i)
+    } else if value == 'o' || value == 'O' {
+      self.set_o(i)
     } else {
       self.set_blank(i)
     }
@@ -140,12 +144,17 @@ impl TttBoardBinRep {
     self.xs |= (1 << (i-1))
   }
 
+  pub fn set_o(&mut self, i : u8) {
+    self.os |= (1 << (i-1))
+  }
+
   pub fn set_blank(&mut self, i : u8) {
     self.xs &= (0b111_111_111 ^ (1 << (i-1)))
   }
 
   pub fn reset(&mut self) {
-    self.xs = 0
+    self.xs = 0;
+    self.os = 0;
   }
 }
 
