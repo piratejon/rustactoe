@@ -168,5 +168,9 @@ impl TttBoardBinRep {
     self.xs = 0;
     self.os = 0;
   }
+
+  pub fn winner(&mut self) -> char {
+    '_'
+  }
 }
 

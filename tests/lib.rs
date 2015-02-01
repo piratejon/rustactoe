@@ -152,10 +152,10 @@ fn tttboard_binrep() {
        */
   board.set_square(9, 'x');
   assert_eq!(board.count_blanks(), 7);
-  // assert_eq!(board.winner(), '_');
+  assert_eq!(board.winner(), '_');
   board.set_square(7, 'x');
   assert_eq!(board.count_blanks(), 6);
-  // assert_eq!(board.winner(), 'x');
+  assert_eq!(board.winner(), 'x');
 
   board.reset();
   assert_eq!(board.count_blanks(), 9);
