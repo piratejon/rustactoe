@@ -207,3 +207,19 @@ fn tttboard_binrep() {
 
 }
 
+#[test]
+fn tttboard_state() {
+  let mut board : rustactoe::TttBoard = std::default::Default::default();
+
+  assert_eq!(board.count_blanks(), 9);
+  board.set_square(5, 'x');
+  assert_eq!(board.count_blanks(), 8);
+  assert_eq!(board.get_square(5), 'x');
+  board.set_square(5, 'o');
+  assert_eq!(board.count_blanks(), 8);
+  assert_eq!(board.get_square(5), 'o');
+  board.set_square(5, '_');
+  assert_eq!(board.count_blanks(), 9);
+  assert_eq!(board.get_square(5), '_');
+}
+
