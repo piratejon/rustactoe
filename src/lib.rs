@@ -127,6 +127,7 @@ impl TttBoardBinRep {
 
   pub fn get_square(&self, i : u8) -> char {
     if self.xs & (1 << (i-1)) > 0 { 'x' }
+    else if self.os & (1 << (i-1)) > 0 { 'o' }
     else { '_' }
   }
 

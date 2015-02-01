@@ -185,6 +185,7 @@ fn tttboard_binrep() {
   assert_eq!(board.count_blanks(), 7);
 
   board.set_square(5, 'o');
+  assert_eq!(board.get_square(5), 'o');
 
   board.set_square(1, 'x');
   assert_eq!(board.count_blanks(), 6);
