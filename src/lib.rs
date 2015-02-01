@@ -1,4 +1,6 @@
 
+use std::str;
+
 enum TttSquareValue {
   X, O, Blank
 }
@@ -169,20 +171,48 @@ impl TttBoardBinRep {
     self.os = 0;
   }
 
+  pub fn check_positions(&self, p : u16) -> bool {
+    p & 0b111_000_000 == 0b111_000_000
+      || p & 0b000_111_000 == 0b000_111_000
+      || p & 0b000_000_111 == 0b000_000_111
+      || p & 0b100_100_100 == 0b100_100_100
+      || p & 0b010_010_010 == 0b010_010_010
+      || p & 0b001_001_001 == 0b001_001_001
+      || p & 0b100_010_001 == 0b100_010_001
+      || p & 0b001_010_100 == 0b001_010_100
+  }
+
   pub fn winner(&mut self) -> char {
-    if (self.xs == 0b111_000_000
-      || self.xs == 0b000_111_000
-        || self.xs == 0b000_000_111
-        || self.xs == 0b100_100_100
-        || self.xs == 0b010_010_010
-        || self.xs == 0b001_001_001
-        || self.xs == 0b100_010_001
-        || self.xs == 0b001_010_100) {
-          'x'
-        }
-    else {
+    if self.check_positions(self.xs) { 'x' }
+    else if self.check_positions(self.os) { 'o' }
+    else { '_' }
+  }
+
+  fn who_has_it(&self, i : u8) -> char {
+    if self.xs & (1 << i) > 0 {
+      'x'
+    } else if self.os & (1 << i) > 0 {
+      'o'
+    } else {
       '_'
     }
   }
+
+  /*
+  pub fn as_string(&self) -> &str {
+    let sliced = [
+      self.who_has_it(9) as u8,
+      self.who_has_it(8) as u8,
+      self.who_has_it(7) as u8,
+      self.who_has_it(6) as u8,
+      self.who_has_it(5) as u8,
+      self.who_has_it(4) as u8,
+      self.who_has_it(3) as u8,
+      self.who_has_it(2) as u8,
+      self.who_has_it(1) as u8
+    ].as_slice();
+    str::from_utf8(sliced).unwrap().as_slice()
+  }
+  */
 }
 
