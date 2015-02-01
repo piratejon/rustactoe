@@ -170,7 +170,19 @@ impl TttBoardBinRep {
   }
 
   pub fn winner(&mut self) -> char {
-    '_'
+    if (self.xs == 0b111_000_000
+      || self.xs == 0b000_111_000
+        || self.xs == 0b000_000_111
+        || self.xs == 0b100_100_100
+        || self.xs == 0b010_010_010
+        || self.xs == 0b001_001_001
+        || self.xs == 0b100_010_001
+        || self.xs == 0b001_010_100) {
+          'x'
+        }
+    else {
+      '_'
+    }
   }
 }
 
