@@ -141,17 +141,27 @@ impl TttBoardBinRep {
     }
   }
 
+  pub fn disable_x(&mut self, i : u8) {
+    self.xs &= (0b111_111_111 ^ (1 << (i-1)));
+  }
+
+  pub fn disable_o(&mut self, i : u8) {
+    self.os &= (0b111_111_111 ^ (1 << (i-1)));
+  }
+
   pub fn set_x(&mut self, i : u8) {
+    self.disable_o(i);
     self.xs |= (1 << (i-1))
   }
 
   pub fn set_o(&mut self, i : u8) {
+    self.disable_x(i);
     self.os |= (1 << (i-1))
   }
 
   pub fn set_blank(&mut self, i : u8) {
-    self.xs &= (0b111_111_111 ^ (1 << (i-1)));
-    self.os &= (0b111_111_111 ^ (1 << (i-1)));
+    self.disable_x(i);
+    self.disable_o(i);
   }
 
   pub fn reset(&mut self) {

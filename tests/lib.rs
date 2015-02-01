@@ -197,7 +197,12 @@ fn tttboard_binrep() {
   assert_eq!(board.count_blanks(), 6);
   // assert_eq!(board.winner(), 'x');
 
+  board.disable_x(9);
+  assert_eq!(board.get_square(9), '_');
+  assert_eq!(board.count_blanks(), 7);
+
   board.reset();
   assert_eq!(board.count_blanks(), 9);
+
 }
 
