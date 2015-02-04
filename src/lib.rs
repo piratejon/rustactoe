@@ -198,6 +198,9 @@ impl TttBoardBinRep {
     }
   }
 
+  pub fn from_string(&mut self, state : &str) {
+  }
+
   /*
   pub fn as_string(&self) -> &str {
     let sliced = [

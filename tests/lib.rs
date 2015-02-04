@@ -225,8 +225,8 @@ fn tttboard_state() {
 
 #[test]
 fn tttboard_init() {
-  let mut board : rustactoe::TttBoard;
-  board.state_from_string("xxooxo xx");
+  let mut board : rustactoe::TttBoardBinRep = std::default::Default::default();
+  board.from_string("xxooxo xx");
   assert_eq!(board.count_blanks(), 1);
   assert_eq!(board.get_square(1), 'x');
   assert_eq!(board.get_square(2), 'x');
