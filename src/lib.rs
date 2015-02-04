@@ -198,7 +198,7 @@ impl TttBoardBinRep {
     }
   }
 
-  pub fn from_string(&mut self, state : &str) {
+  pub fn from_string(&mut self, state : &char[9]) {
   }
 
   /*
