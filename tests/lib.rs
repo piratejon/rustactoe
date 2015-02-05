@@ -234,7 +234,7 @@ fn tttboard_init() {
   assert_eq!(board.get_square(4), 'o');
   assert_eq!(board.get_square(5), 'x');
   assert_eq!(board.get_square(6), 'o');
-  assert_eq!(board.get_square(7), ' ');
+  assert_eq!(board.get_square(7), '_');
   assert_eq!(board.get_square(8), 'x');
   assert_eq!(board.get_square(9), 'x');
 }

@@ -198,7 +198,18 @@ impl TttBoardBinRep {
     }
   }
 
-  pub fn from_string(&mut self, state : &char[9]) {
+  pub fn from_string(&mut self, state : &str) {
+    if (state.len() == 9) {
+      self.set_square(1, state.char_at(0));
+      self.set_square(2, state.char_at(1));
+      self.set_square(3, state.char_at(2));
+      self.set_square(4, state.char_at(3));
+      self.set_square(5, state.char_at(4));
+      self.set_square(6, state.char_at(5));
+      self.set_square(7, state.char_at(6));
+      self.set_square(8, state.char_at(7));
+      self.set_square(9, state.char_at(8));
+    }
   }
 
   /*
