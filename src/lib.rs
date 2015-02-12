@@ -217,5 +217,9 @@ impl TttBoardBinRep {
     out.push(self.get_square(9));
     out
   }
+
+  pub fn compute_x_next_move(&self) -> u8 {
+    9
+  }
 }
 
