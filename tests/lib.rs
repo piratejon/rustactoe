@@ -259,6 +259,9 @@ fn tttboard_next_state() {
   let mut board : rustactoe::TttBoardBinRep = std::default::Default::default();
 
   board.from_string("xoooxox  ");
-  assert_eq!(board.compute_x_next_move(), 9);
+  assert_eq!(board.compute_x_next_move(), 9); // XXX trivial
+  assert_eq!(board.winner(), '_');
+  board.set_square(9, 'x');
+  assert_eq!(board.winner(), 'x');
 }
 
