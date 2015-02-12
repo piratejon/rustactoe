@@ -237,5 +237,27 @@ fn tttboard_init() {
   assert_eq!(board.get_square(7), '_');
   assert_eq!(board.get_square(8), 'x');
   assert_eq!(board.get_square(9), 'x');
+  assert_eq!(board.as_string().len(), 9);
+  assert_eq!(board.as_string(), "xxooxo_xx");
+
+  board.from_string("xoooxox  ");
+  assert_eq!(board.count_blanks(), 2);
+  assert_eq!(board.get_square(1), 'x');
+  assert_eq!(board.get_square(2), 'o');
+  assert_eq!(board.get_square(3), 'o');
+  assert_eq!(board.get_square(4), 'o');
+  assert_eq!(board.get_square(5), 'x');
+  assert_eq!(board.get_square(6), 'o');
+  assert_eq!(board.get_square(7), 'x');
+  assert_eq!(board.get_square(8), '_');
+  assert_eq!(board.get_square(9), '_');
+  assert_eq!(board.as_string(), "xoooxox__");
+}
+
+#[test]
+fn tttboard_next_state() {
+  let mut board : rustactoe::TttBoardBinRep = std::default::Default::default();
+
+  board.from_string("xoooxox  ");
 }
 

@@ -107,6 +107,7 @@ impl TttBoard {
 pub struct TttBoardBinRep {
   xs : u16,
   os : u16,
+  s : [char;9],
 }
 
 impl std::default::Default for TttBoardBinRep {
@@ -114,6 +115,7 @@ impl std::default::Default for TttBoardBinRep {
     TttBoardBinRep {
       xs : 0,
       os : 0,
+      s : ['_', '_', '_', '_', '_', '_', '_', '_', '_'],
     }
   }
 }
@@ -188,16 +190,6 @@ impl TttBoardBinRep {
     else { '_' }
   }
 
-  fn who_has_it(&self, i : u8) -> char {
-    if self.xs & (1 << i) > 0 {
-      'x'
-    } else if self.os & (1 << i) > 0 {
-      'o'
-    } else {
-      '_'
-    }
-  }
-
   pub fn from_string(&mut self, state : &str) {
     if (state.len() == 9) {
       self.set_square(1, state.char_at(0));
@@ -212,21 +204,18 @@ impl TttBoardBinRep {
     }
   }
 
-  /*
-  pub fn as_string(&self) -> &str {
-    let sliced = [
-      self.who_has_it(9) as u8,
-      self.who_has_it(8) as u8,
-      self.who_has_it(7) as u8,
-      self.who_has_it(6) as u8,
-      self.who_has_it(5) as u8,
-      self.who_has_it(4) as u8,
-      self.who_has_it(3) as u8,
-      self.who_has_it(2) as u8,
-      self.who_has_it(1) as u8
-    ].as_slice();
-    str::from_utf8(sliced).unwrap().as_slice()
+  pub fn as_string(&self) -> String {
+    let mut out = String::with_capacity(9);
+    out.push(self.get_square(1));
+    out.push(self.get_square(2));
+    out.push(self.get_square(3));
+    out.push(self.get_square(4));
+    out.push(self.get_square(5));
+    out.push(self.get_square(6));
+    out.push(self.get_square(7));
+    out.push(self.get_square(8));
+    out.push(self.get_square(9));
+    out
   }
-  */
 }
 
