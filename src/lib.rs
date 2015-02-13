@@ -238,5 +238,9 @@ impl TttBoardBinRep {
     }
     o
   }
+
+  pub fn score(&self, which : char) -> u8 {
+    10
+  }
 }
 

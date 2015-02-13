@@ -292,3 +292,10 @@ fn tttboard_clone() {
   assert_eq!(b1.as_string(), "xoooxoxo_");
 }
 
+#[test]
+fn tttboard_score() {
+  let mut b0 : rustactoe::TttBoardBinRep = std::default::Default::default();
+  b0.from_string("xoooxoxo ");
+  assert_eq!(b0.score('x'), 10);
+}
+
