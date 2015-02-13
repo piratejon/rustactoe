@@ -296,6 +296,6 @@ fn tttboard_clone() {
 fn tttboard_score() {
   let mut b0 : rustactoe::TttBoardBinRep = std::default::Default::default();
   b0.from_string("xoooxoxo ");
-  assert_eq!(b0.score('x'), 10);
+  assert_eq!(b0.score_single_board('x'), 0);
 }
 

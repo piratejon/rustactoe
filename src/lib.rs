@@ -191,7 +191,7 @@ impl TttBoardBinRep {
       || p & 0b001_010_100 == 0b001_010_100
   }
 
-  pub fn winner(&mut self) -> char {
+  pub fn winner(&self) -> char {
     if self.check_positions(self.xs) { 'x' }
     else if self.check_positions(self.os) { 'o' }
     else { '_' }
@@ -239,8 +239,15 @@ impl TttBoardBinRep {
     o
   }
 
-  pub fn score(&self, which : char) -> u8 {
-    10
+  pub fn score_single_board(&self, which : char) -> u8 {
+    let w = self.winner();
+    if w == 'x' {
+      10
+    } else if w == 'o' {
+      -10
+    } else {
+      0
+    }
   }
 }
 
