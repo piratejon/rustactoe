@@ -278,3 +278,14 @@ fn tttboard_next_state() {
   assert_eq!(move_list[2], 9);
 }
 
+#[test]
+fn tttboard_clone() {
+  let mut b0 : rustactoe::TttBoardBinRep = std::default::Default::default();
+  b0.from_string("xoooxox  ");
+  let b1 = b0.clone();
+  assert_eq!(b0.as_string(), b1.as_string());
+  b0.set_square(3, 'x');
+  assert_eq!(b0.as_string(), "xoxoxox__");
+  assert_eq!(b1.as_string(), "xoooxox__");
+}
+

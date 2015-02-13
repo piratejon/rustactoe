@@ -107,7 +107,7 @@ impl TttBoard {
 pub struct TttBoardBinRep {
   xs : u16,
   os : u16,
-  s : [char;9],
+  // s : [char;9],
 }
 
 impl std::default::Default for TttBoardBinRep {
@@ -115,7 +115,16 @@ impl std::default::Default for TttBoardBinRep {
     TttBoardBinRep {
       xs : 0,
       os : 0,
-      s : ['_', '_', '_', '_', '_', '_', '_', '_', '_'],
+      // s : ['_', '_', '_', '_', '_', '_', '_', '_', '_'],
+    }
+  }
+}
+
+impl Clone for TttBoardBinRep {
+  fn clone(&self) -> Self { 
+    TttBoardBinRep {
+      xs : self.xs,
+      os : self.os,
     }
   }
 }
