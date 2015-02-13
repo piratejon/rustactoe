@@ -218,21 +218,8 @@ impl TttBoardBinRep {
     out
   }
 
-  pub fn compute_x_next_move(&mut self) -> u8 {
-    let blanks = !(self.xs | self.os);
-    let mut count = 9;
-    for i in range(0,9) {
-      if (blanks >> i) & 1 == 1 {
-        self.set_x(i);
-        if self.winner() == 'x' {
-          self.disable_x(i);
-          return i;
-        }
-        self.disable_x(i);
-      }
-    }
-    return -1;
-    // 9
+  pub fn compute_x_next_move(&self) -> u8 {
+    9
   }
 }
 
