@@ -263,5 +263,11 @@ fn tttboard_next_state() {
   assert_eq!(board.winner(), '_');
   board.set_square(9, 'x');
   assert_eq!(board.winner(), 'x');
+
+  board.from_string("xoooxox  ");
+  let move_list = board.get_open_positions();
+  assert_eq!(move_list.len(), 2);
+  assert_eq!(move_list[0], 8);
+  assert_eq!(move_list[1], 9);
 }
 

@@ -221,5 +221,9 @@ impl TttBoardBinRep {
   pub fn compute_x_next_move(&self) -> u8 {
     9
   }
+
+  pub fn get_open_positions(&self) -> Vec<u8> {
+    [8, 9].to_vec()
+  }
 }
 
