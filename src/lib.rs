@@ -223,7 +223,13 @@ impl TttBoardBinRep {
   }
 
   pub fn get_open_positions(&self) -> Vec<u8> {
-    [8, 9].to_vec()
+    let mut o = Vec::new();
+    for i in range(0,9) {
+      if (((self.xs | self.os) >> i) & 1) == 0 {
+        o.push(i+1);
+      }
+    }
+    o
   }
 }
 

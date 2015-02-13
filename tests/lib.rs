@@ -269,5 +269,12 @@ fn tttboard_next_state() {
   assert_eq!(move_list.len(), 2);
   assert_eq!(move_list[0], 8);
   assert_eq!(move_list[1], 9);
+  
+  board.from_string(" xxoox o ");
+  let move_list = board.get_open_positions();
+  assert_eq!(move_list.len(), 3);
+  assert_eq!(move_list[0], 1);
+  assert_eq!(move_list[1], 7);
+  assert_eq!(move_list[2], 9);
 }
 
