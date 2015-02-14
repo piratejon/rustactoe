@@ -318,5 +318,10 @@ fn tttboard_score() {
   let winning_move_list = b0.winning_move_list('x', 'o');
   assert_eq!(winning_move_list.len(), 1);
   assert_eq!(winning_move_list[0], 5);
+
+  let next_move_list = b0.non_winning_move_list('x', 'o');
+  assert_eq!(next_move_list.len(), 2);
+  assert_eq!(next_move_list[0], 2);
+  assert_eq!(next_move_list[1], 6);
 }
 

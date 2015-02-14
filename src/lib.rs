@@ -264,5 +264,20 @@ impl TttBoardBinRep {
     }
     w
   }
+
+  pub fn non_winning_move_list(&mut self, p1 : char, p2 : char) -> Vec<u8> {
+    let mut w = Vec::new();
+    if self.winner() == '_' {
+      let o = self.get_open_positions();
+      for i in o.iter() {
+        self.set_square(*i, p1);
+        if self.winner() == '_' {
+          w.push(*i);
+        }
+        self.set_blank(*i);
+      }
+    }
+    w
+  }
 }
 
