@@ -296,6 +296,27 @@ fn tttboard_clone() {
 fn tttboard_score() {
   let mut b0 : rustactoe::TttBoardBinRep = std::default::Default::default();
   b0.from_string("xoooxoxo ");
-  assert_eq!(b0.score_single_board('x'), 0);
+  assert_eq!(b0.score_single_board('x', 'o'), 0);
+
+  b0.from_string("o xx  xoo");
+  assert_eq!(b0.winner(), '_');
+  let move_list = b0.get_open_positions();
+  assert_eq!(move_list.len(), 3);
+  assert_eq!(move_list[0], 2);
+  assert_eq!(move_list[1], 5);
+  assert_eq!(move_list[2], 6);
+
+  /*
+  let winning_move_list = b0.winning_move_list('x', 'o');
+  assert_eq!(winning_move_list.len(), 3);
+  assert_eq!(winning_move_list[0], 2);
+  assert_eq!(winning_move_list[1], 5);
+  assert_eq!(winning_move_list[2], 6);
+  */
+
+  b0.from_string("o xx  xoo");
+  let winning_move_list = b0.winning_move_list('x', 'o');
+  assert_eq!(winning_move_list.len(), 1);
+  assert_eq!(winning_move_list[0], 5);
 }
 

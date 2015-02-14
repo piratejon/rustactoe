@@ -239,15 +239,30 @@ impl TttBoardBinRep {
     o
   }
 
-  pub fn score_single_board(&self, which : char) -> u8 {
+  pub fn score_single_board(&self, p1 : char, p2 : char) -> u8 {
     let w = self.winner();
-    if w == 'x' {
+    if w == p1 {
       10
-    } else if w == 'o' {
+    } else if w == p2 {
       -10
     } else {
       0
     }
+  }
+
+  pub fn winning_move_list(&mut self, p1 : char, p2 : char) -> Vec<u8> {
+    let mut w = Vec::new();
+    if self.winner() == '_' {
+      let o = self.get_open_positions();
+      for i in o.iter() {
+        self.set_square(*i, p1);
+        if self.winner() == p1 {
+          w.push(*i);
+        }
+        self.set_blank(*i);
+      }
+    }
+    w
   }
 }
 
