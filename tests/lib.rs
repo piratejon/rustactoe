@@ -328,5 +328,9 @@ fn tttboard_minimax_score() {
   b.from_string("xxxoo    ");
   assert_eq!(b.winner(), 'x');
   assert_eq!(b.minimax_score('x', 'o'), 6);
+
+  b.from_string("xx oo    ");
+  assert_eq!(b.winner(), '_');
+  assert_eq!(b.minimax_score('x', 'o'), 6);
 }
 
