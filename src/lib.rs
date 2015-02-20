@@ -298,8 +298,15 @@ impl TttBoardBinRep {
     }
   }
 
-  pub fn minimax_score(&self, p1 : char) -> u8 {
-    7
+  pub fn minimax_score(&self, p1 : char, p2 : char) -> u8 {
+    let w = self.winner();
+    if w == p1 {
+      10 - (self.get_open_positions().len() as u8)
+    } else if w == p2 {
+      - self.minimax_score(p2, p1)
+    } else {
+      0
+    }
   }
 }
 
