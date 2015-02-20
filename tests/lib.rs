@@ -2,11 +2,6 @@
 extern crate rustactoe;
 
 #[test]
-fn test_it() {
-  assert!(true);
-}
-
-#[test]
 fn tttsquare() {
   let mut square : rustactoe::TttSquare = std::default::Default::default();
   assert_eq!(square.get_value(), 'x');
@@ -323,5 +318,14 @@ fn tttboard_score() {
   assert_eq!(next_move_list.len(), 2);
   assert_eq!(next_move_list[0], 2);
   assert_eq!(next_move_list[1], 6);
+
+  b0.iterate('x', 'o');
+}
+
+#[test]
+fn tttboard_minimax_score() {
+  let mut b : rustactoe::TttBoardBinRep = std::default::Default::default();
+  b.from_string("xxxoo   ");
+  assert_eq!(b.minimax_score('x'), 7);
 }
 

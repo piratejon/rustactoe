@@ -1,6 +1,4 @@
 
-use std::str;
-
 enum TttSquareValue {
   X, O, Blank
 }
@@ -98,12 +96,13 @@ impl TttBoard {
   }
 
   pub fn reset(&mut self) {
-    for i in range(0, self.squares.len()) {
+    for i in (0..self.squares.len()) {
       self.squares[i].set_value('_')
     }
   }
 }
 
+#[derive(Copy)]
 pub struct TttBoardBinRep {
   xs : u16,
   os : u16,
@@ -130,8 +129,8 @@ impl Clone for TttBoardBinRep {
 impl TttBoardBinRep {
   pub fn count_blanks(&self) -> u16 {
     let mut count = 9;
-    for i in range(0,9) {
-      count -= (((self.xs | self.os) >> i) & 1)
+    for i in 0..9 {
+      count -= ((self.xs | self.os) >> i) & 1
     }
     count
   }
@@ -153,21 +152,21 @@ impl TttBoardBinRep {
   }
 
   pub fn disable_x(&mut self, i : u8) {
-    self.xs &= (0b111_111_111 ^ (1 << (i-1)));
+    self.xs &= 0b111_111_111 ^ (1 << (i-1));
   }
 
   pub fn disable_o(&mut self, i : u8) {
-    self.os &= (0b111_111_111 ^ (1 << (i-1)));
+    self.os &= 0b111_111_111 ^ (1 << (i-1));
   }
 
   pub fn set_x(&mut self, i : u8) {
     self.disable_o(i);
-    self.xs |= (1 << (i-1))
+    self.xs |= 1 << (i-1)
   }
 
   pub fn set_o(&mut self, i : u8) {
     self.disable_x(i);
-    self.os |= (1 << (i-1))
+    self.os |= 1 << (i-1)
   }
 
   pub fn set_blank(&mut self, i : u8) {
@@ -198,7 +197,7 @@ impl TttBoardBinRep {
   }
 
   pub fn from_string(&mut self, state : &str) {
-    if (state.len() == 9) {
+    if state.len() == 9 {
       self.set_square(1, state.char_at(0));
       self.set_square(2, state.char_at(1));
       self.set_square(3, state.char_at(2));
@@ -231,7 +230,7 @@ impl TttBoardBinRep {
 
   pub fn get_open_positions(&self) -> Vec<u8> {
     let mut o = Vec::new();
-    for i in range(0,9) {
+    for i in 0..9 {
       if (((self.xs | self.os) >> i) & 1) == 0 {
         o.push(i+1);
       }
@@ -278,6 +277,29 @@ impl TttBoardBinRep {
       }
     }
     w
+  }
+
+  pub fn iterate(&mut self, p1 : char, p2 : char) {
+    match self.winner() {
+      'x' => {
+        print!("x wins: {}", self.as_string());
+      },
+      'o' => {
+        print!("o wins: {}", self.as_string());
+      }
+      _ => {
+        let o = self.get_open_positions();
+        for i in o.iter() {
+          self.set_square(*i, p1);
+          self.iterate(p2, p1);
+          self.set_blank(*i);
+        }
+      }
+    }
+  }
+
+  pub fn minimax_score(&self, p1 : char) -> u8 {
+    7
   }
 }
 
