@@ -327,6 +327,6 @@ fn tttboard_minimax_score() {
   let mut b : rustactoe::TttBoardBinRep = std::default::Default::default();
   b.from_string("xxxoo    ");
   assert_eq!(b.winner(), 'x');
-  assert_eq!(b.minimax_score('x', 'o'), 7);
+  assert_eq!(b.minimax_score('x', 'o'), 6);
 }
 
